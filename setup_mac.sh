@@ -70,3 +70,10 @@ fi
 chmod 600 "$CONFIG_FILE"
 chmod 600 "$KEY_PATH"
 chmod 644 "${KEY_PATH}.pub"
+
+# zshenv
+ln -snf $DOT_DIR_SOURCE/.config/zsh/.zshenv ~
+source $HOME/.zshenv
+
+bash $DOT_DIR_SOURCE/installer/setup_symlinks.sh
+bash $DOT_DIR_SOURCE/installer/install_packages.sh
