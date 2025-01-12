@@ -7,6 +7,7 @@ brew "tmux"
 brew "tree"
 brew "lsd"
 brew "git-flow"
+brew "git-delta"
 
 cask "google-japanese-ime"
 cask "google-chrome"
