@@ -1,0 +1,24 @@
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
+[init]
+  defaultBranch = main
+
+# マージする際に必ず新しいコミットを作成
+[merge]
+  ff = false
+
+# git pull 時に、ファストフォワードマージのみを許可
+[pull]
+  ff = only
+
+# fetch時にリモートリポジトリで削除されたブランチをローカルでも削除
+[fetch]
+  prune = true
+
+[core]
+  autocrlf = input
+  editor = code --wait
+
+[ghq]
+	root = ~/dev

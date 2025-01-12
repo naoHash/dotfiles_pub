@@ -1,0 +1,75 @@
+[alias]
+  # log
+  l = log
+  # commit
+  c = commit
+  cm = commit -m
+  ca = commit --amend
+  cam = commit --amend -m
+  can = commit --amend --no-edit
+  # diff
+  d = diff
+  ds = diff --staged
+  dw = diff --word-diff  # 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
+  # switch
+  s = switch
+  sc = switch -c
+  # status
+  st = status
+  sts = status -s
+  stu = status -uno  # Untracked filesを表示せず，not stagedと，stagedだけの状態を出力する
+  # cherry-pick
+  cp = cherry-pick
+  # stash
+  sp = stash push
+  sa = stash apply
+  spop = stash pop
+  sl = stash list
+  # branch
+  b = branch
+  bd = branch -d
+  bf = branch -f
+  # staging
+  a = add
+  u = unstage
+  # fetch
+  f = fetch
+  # push
+  p = push
+  pu = push -u  # --set-upstream
+  poh = push origin HEAD
+  # merge
+  m = merge
+
+  # unstage
+  unstage = restore --staged
+
+  # 直前のコミットを取り消す
+  cancel = reset --soft HEAD^
+
+  # 誤って消したstashを復元する
+  # (ref) https://zenn.dev/hikarin/articles/f09f655c47053096f196
+  # === 使い方 ===
+  # 消してしまった stash commit のハッシュを探す
+  # git stash-find --oneline --grep=hoge
+  # 見つかったコミットを cherry-pick する
+  # git stash-pick 'commit hash'
+  stash-find = !"git fsck --unreachable | awk '/commit/ {print $3}' | xargs git log --merges --no-walk --grep=WIP --all-match"
+  stash-pick = cherry-pick -n -m1
+
+  # git graph : logを良い感じにグラフで表示.
+  # 全てのブランチを表示したいので --remotes と --branches を追加している
+  g = log --graph --date=format:'%m/%d %H:%M' --format=format:'%C(yellow)%h %C(cyan)%ad %C(green)%an%Creset%x09%s %C(red)%d%Creset' --remotes --branches
+  g2 = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+
+  # git alias : 現在登録してあるエイリアス一覧を表示する.
+  # 長いエイリアスが多いので前方90文字で切っている
+  alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | cut -c 1-90 | sort
+
+  #情報取得系
+  # git where <コミットハッシュ>  そのコミットが属しているブランチを表示.
+  where = branch --contains
+  # git here : 現在のリポジトリのパスを取得. pwdコマンドに近いが表記がWindowsオリジナルに近くなる.
+  here = rev-parse --show-toplevel
+  #git showコマンドだと--onelineオプションが効かない気がするので、等価な働きをするlog -1を使う
+  show2 = log -1
