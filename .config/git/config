@@ -18,7 +18,6 @@
 
 [core]
   autocrlf = input
-  editor = code --wait
 
 [ghq]
 	root = ~/dev
