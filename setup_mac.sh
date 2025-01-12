@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOT_DIR_SOURCE="$HOME/dev/github.com/naoHash/dotfiles_pub"
+
 # ===== 1. Homebrewのインストール =====
 if ! command -v brew >/dev/null 2>&1; then
   echo "Homebrewがインストールされていません。インストールを開始します。"
