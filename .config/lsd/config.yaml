@@ -1,0 +1,11 @@
+# ソート方法
+sorting:
+  # ディレクトリを先頭に
+  dir-grouping: first
+
+# ヘッダー行追加
+header: true
+
+# 日付表示形式
+# 相対時間表示
+date: relative
