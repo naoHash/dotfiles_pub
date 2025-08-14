@@ -1,4 +1,15 @@
 # ============================
+#  Cursor Agent Mode
+# ============================
+# https://forum.cursor.com/t/cursor-agent-mode-when-running-terminal-commands-often-hangs-up-the-terminal-requiring-a-click-to-pop-it-out-in-order-to-continue-commands/59969/37
+if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
+# Cursor Agentモードのときは細かい機能は使わない。
+# Agentでコマンド実行されたあとに進まなくなる事象があるため。
+# https://zenn.dev/kikagaku/articles/cursor-agent-mode-hangs
+  return
+fi
+
+# ============================
 #  Powerlevel10k Instant Prompt
 # ============================
 # Powerlevel10kのインスタントプロンプトを有効化
@@ -70,7 +81,7 @@ zinit light momo-lab/zsh-replace-multiple-dots
 #  読み込み
 # ============================
 for func in $ZDOTDIR/functions/*; do
-  source $func
+#  source $func
 done
 source "$ZDOTDIR/core/aliases.zsh"
 source "$ZDOTDIR/core/options.zsh"
