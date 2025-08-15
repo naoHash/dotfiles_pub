@@ -8,17 +8,6 @@ print_message() {
   printf '\033[32m%s\033[m\n' "$1"
 }
 
-# Brewパッケージのインストール
-install_brew_apps() {
-  print_message 'Installing brew apps...'
-  cd "$DOT_DIR_SOURCE" || return 1
-  brew update
-  brew upgrade
-  brew cleanup
-  brew autoremove
-  brew bundle || return 1
-}
-
 # Preztoのインストール
 install_zprezto() {
   if [[ ! -e "$GHQ_HOME/github.com/sorin-ionescu/prezto" ]]; then
@@ -41,16 +30,10 @@ install_tpm() {
 }
 
 main() {
-  local current_dir
-  current_dir=$(dirname "${BASH_SOURCE[0]:-$0}")
-
-  source "$current_dir/utilfunc.sh"
-
   print_message '========================'
   print_message 'Installing packages...'
   print_message '========================'
 
-  install_brew_apps
   install_zprezto
   install_tpm
 }
