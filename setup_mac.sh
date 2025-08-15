@@ -36,3 +36,6 @@ bash $DOT_DIR_SOURCE/installer/setup_symlinks.sh
 
 # ===== 7. Prezto, TPMなどのセットアップ =====
 bash $DOT_DIR_SOURCE/installer/install_packages.sh
+
+# ===== 8. macOS システム設定の反映 =====
+bash $DOT_DIR_SOURCE/installer/macos_settings.sh
