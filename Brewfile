@@ -21,4 +21,4 @@ cask "bettertouchtool"
 cask "clipy"
 
 mas "AmorphousDiskMark", id: 1168254295
-mas "DaVinci Resolve", id: 571213070
+mas "DaVinci Resolve Studio", id: 900392332
