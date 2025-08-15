@@ -1,3 +1,6 @@
+[include]
+path = ~/.config/git/aliases
+
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 
